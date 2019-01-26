@@ -13,7 +13,7 @@
     <description>Allows Native C++ Applications to use precompiled lzham</description>
     <tags>texture,unique,uc,creator</tags>
     <dependencies>
-        <dependency id="amd-compressonator-2-3-0" version="2.3.3" targetFramework="native" />
+        <dependency id="amd-compressonator-2-3-0"/>
         <dependency id="uc-imaging"/>
         <dependency id="uc-core"/>
         <dependency id="uc-serialization"/>
