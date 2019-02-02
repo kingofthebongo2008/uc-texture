@@ -135,7 +135,6 @@ namespace uc
                 return t;
             }
 
-
             inline uc::lip::texture2d create_texture_2d(const std::string& file_name, lip::storage_format storage, lip::view_format view)
             {
                 auto r0 = gx::imaging::read_image(util::utf16_from_utf8(file_name).c_str());
@@ -158,36 +157,33 @@ namespace uc
 
                 return r;
             }
-        }
+            inline uc::lip::texture2d_mip_chain create_texture_2d_mip_chain(const std::string& file_name, lip::storage_format storage, lip::view_format view)
+            {
+                auto r0 = gx::imaging::read_image(util::utf16_from_utf8(file_name).c_str());
 
+                uc::lip::texture2d_mip_level r;
 
-        inline uc::lip::texture2d_mip_chain create_texture_2d_mip_chain(const std::string& file_name, lip::storage_format storage, lip::view_format view)
-        {
-            auto r0 = gx::imaging::read_image(util::utf16_from_utf8(file_name).c_str());
+                //only this is supported
+                r.m_storage_format = static_cast<uint16_t>(storage);
+                r.m_view_format = static_cast<uint16_t>(view);
 
-            uc::lip::texture2d_mip_level r;
+                auto w = r0.width();
+                auto h = r0.height();
 
-            //only this is supported
-            r.m_storage_format = static_cast<uint16_t>(storage);
-            r.m_view_format = static_cast<uint16_t>(view);
+                r.m_width = static_cast<uint16_t>(w);
+                r.m_height = static_cast<uint16_t>(h);
 
-            auto w = r0.width();
-            auto h = r0.height();
+                auto bc = convert_cmp(compressonator::make_texture(std::move(r0)), lip_to_cmp(storage));
 
-            r.m_width = static_cast<uint16_t>(w);
-            r.m_height = static_cast<uint16_t>(h);
+                auto span = gsl::make_span(&bc[0], bc.size());
+                r.m_data.resize(bc.size());
+                std::copy(span.begin(), span.end(), &r.m_data[0]);
 
+                uc::lip::texture2d_mip_chain t;
+                t.m_levels.push_back(std::move(r));
 
-            auto bc = convert_cmp(compressonator::make_texture(std::move(r0)), lip_to_cmp(storage));
-
-            auto span = gsl::make_span(&bc[0], bc.size());
-            r.m_data.resize(bc.size());
-            std::copy(span.begin(), span.end(), &r.m_data[0]);
-
-            uc::lip::texture2d_mip_chain t;
-            t.m_levels.push_back(std::move(r));
-
-            return t;
+                return t;
+            }
         }
     }
 }
