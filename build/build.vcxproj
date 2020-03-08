@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="packages\uc-serialization.1.0.48\build\native\uc-serialization.props" Condition="Exists('packages\uc-serialization.1.0.48\build\native\uc-serialization.props')" />
+  <Import Project="packages\uc-serialization.1.0.49\build\native\uc-serialization.props" Condition="Exists('packages\uc-serialization.1.0.49\build\native\uc-serialization.props')" />
   <Import Project="packages\uc-imaging.1.0.13\build\native\uc-imaging.props" Condition="Exists('packages\uc-imaging.1.0.13\build\native\uc-imaging.props')" />
   <Import Project="packages\uc-core.1.0.16\build\native\uc-core.props" Condition="Exists('packages\uc-core.1.0.16\build\native\uc-core.props')" />
   <Import Project="packages\amd-compressonator-2-3-0.2.3.3\build\native\amd-compressonator-2-3-0.props" Condition="Exists('packages\amd-compressonator-2-3-0.2.3.3\build\native\amd-compressonator-2-3-0.props')" />
@@ -75,7 +75,7 @@
     <Import Project="packages\microsoft-gsl-library.1.0.8\build\native\microsoft-gsl-library.targets" Condition="Exists('packages\microsoft-gsl-library.1.0.8\build\native\microsoft-gsl-library.targets')" />
     <Import Project="packages\uc-core.1.0.16\build\native\uc-core.targets" Condition="Exists('packages\uc-core.1.0.16\build\native\uc-core.targets')" />
     <Import Project="packages\uc-imaging.1.0.13\build\native\uc-imaging.targets" Condition="Exists('packages\uc-imaging.1.0.13\build\native\uc-imaging.targets')" />
-    <Import Project="packages\uc-serialization.1.0.48\build\native\uc-serialization.targets" Condition="Exists('packages\uc-serialization.1.0.48\build\native\uc-serialization.targets')" />
+    <Import Project="packages\uc-serialization.1.0.49\build\native\uc-serialization.targets" Condition="Exists('packages\uc-serialization.1.0.49\build\native\uc-serialization.targets')" />
   </ImportGroup>
   <Import Project="build_h.msbuild" />
   <Import Project="build_cpp.msbuild" />
@@ -90,7 +90,7 @@
     <Error Condition="!Exists('packages\uc-core.1.0.16\build\native\uc-core.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\uc-core.1.0.16\build\native\uc-core.targets'))" />
     <Error Condition="!Exists('packages\uc-imaging.1.0.13\build\native\uc-imaging.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\uc-imaging.1.0.13\build\native\uc-imaging.props'))" />
     <Error Condition="!Exists('packages\uc-imaging.1.0.13\build\native\uc-imaging.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\uc-imaging.1.0.13\build\native\uc-imaging.targets'))" />
-    <Error Condition="!Exists('packages\uc-serialization.1.0.48\build\native\uc-serialization.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\uc-serialization.1.0.48\build\native\uc-serialization.props'))" />
-    <Error Condition="!Exists('packages\uc-serialization.1.0.48\build\native\uc-serialization.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\uc-serialization.1.0.48\build\native\uc-serialization.targets'))" />
+    <Error Condition="!Exists('packages\uc-serialization.1.0.49\build\native\uc-serialization.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\uc-serialization.1.0.48\build\native\uc-serialization.props'))" />
+    <Error Condition="!Exists('packages\uc-serialization.1.0.49\build\native\uc-serialization.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\uc-serialization.1.0.48\build\native\uc-serialization.targets'))" />
   </Target>
 </Project>
